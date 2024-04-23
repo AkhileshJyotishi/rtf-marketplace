@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { UserProvider } from "@/providers/user-context";
+import { cn } from "@/utils/cn";
+import { MetaMaskProvider } from "@/providers/metamask-context";
+import { NavbarDemo } from "@/components/navigation-menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cn(inter.className, "bg-slate-950")}>
+        <MetaMaskProvider>
+          <UserProvider>
+            <NavbarDemo />
+            <div >{children}</div>
+          </UserProvider>
+        </MetaMaskProvider>
+      </body>
     </html>
   );
 }
