@@ -1,20 +1,70 @@
 "use client";
-import type { NextPage } from "next";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { cn } from "@/utils/cn";
 import Image from "next/image";
 import FighterImg from "@/assets/fight-night-hero-vector-boxer-emblem-gloved-dynamo-black-iconic-boxer_706143-55924.svg";
-
+import Button from "../Button";
+const stats=[
+  {
+    id:1,
+    name:"240k+",
+    value:"Total Sale"
+  },
+  {
+    id:2,
+    name:"100k+",
+    value:"Auctions"
+  },
+  {
+    id:3,
+    name:"100k+",
+    value:"Artists"
+  },
+]
 export const BackgroundCellAnimation = () => {
   return (
-    <div className="relative h-screen   flex justify-center overflow-hidden">
+    <div className="relative h-screen max-h-[1000px]   flex justify-center overflow-hidden">
       <BackgroundCellCore />
-      <div className="z-40 text-white w-11/12 grid sm:grid-cols-2  grid-cols-1 mt-32">
-        <div className="flex justify-center ">
-          <h1 className="text-4xl">Discover digital art <br/> Collect NFTs</h1>
+      <div className="z-40 text-white w-11/12 mx-auto grid sm:grid-cols-2  grid-cols-1 mt-32">
+        <div className="flex flex-col justify-center gap-4">
+          <h1 className="text-6xl font-bold ">
+            Discover <br />
+            digital art <br /> Collect NFTs
+          </h1>
+          <p className="mt-4">
+            NFT marketplace UI created with Anima for Figma. Collect, buy and
+            sell art from more than 20k NFT artists.
+          </p>
+          <Button className="px-4 py-2 text-white" variant="blackNwhite">
+            Get Started 
+          </Button>
+          <div className="mt-4">
+          <div className=" py-4 sm:py-8">
+      <div className="px-6 lg:px-8">
+        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+          {stats.map((stat) => (
+            <div key={stat.id} className=" mx-auto flex  flex-col gap-y-4 justify-between">
+              <dt className="text-base leading-7 text-white">{stat.name}</dt>
+              <dd className="order-first text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                {stat.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+          </div>
         </div>
-        <div className="flex justify-center ">grid1</div>
+        <div className="flex flex-col  ">
+          <Image
+            alt="Image"
+            src={FighterImg}
+            height={800}
+            width={800}
+            className="h-full aspect-square"
+          />
+        </div>
       </div>
     </div>
   );
