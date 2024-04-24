@@ -144,7 +144,7 @@ export default function Profile({ children }) {
                 setSubTab("created");
               }}
               className={
-                `border-b-[3px] border-transparent text-center hover:text-gray-800 dark:hover:text-gray-200 py-3 w-[9rem] hover:border-gray-400 mx-1.5 sm:mx-6` +
+                `border-b-[3px] border-transparent text-center hover:cursor-pointer hover:text-gray-800 dark:hover:text-gray-200 py-3 w-[9rem] hover:border-gray-400 mx-1.5 sm:mx-6` +
                 (subTab === "created"
                   ? "border-b-[3px] border-transparent border-gray-400"
                   : "border-b-[3px] border-transparent")
@@ -158,7 +158,7 @@ export default function Profile({ children }) {
                 setSubTab("owned");
               }}
               className={
-                `border-b-[3px] border-transparent text-center hover:text-gray-800 hover:border-gray-400 dark:hover:text-gray-200 py-3 w-[9rem] mx-1.5 sm:mx-6` +
+                `border-b-[3px] border-transparent text-center hover:cursor-pointer hover:text-gray-800 hover:border-gray-400 dark:hover:text-gray-200 py-3 w-[9rem] mx-1.5 sm:mx-6` +
                 (subTab === "owned"
                   ? "border-b-[3px] border-transparent border-gray-400"
                   : "border-b-[3px] border-transparent")
@@ -172,7 +172,7 @@ export default function Profile({ children }) {
                 setSubTab("collection");
               }}
               className={
-                `border-b-[3px] border-transparent text-center hover:text-gray-800 dark:hover:text-gray-200 py-3 w-[9rem] hover:border-gray-400 mx-1.5 sm:mx-6` +
+                `border-b-[3px] border-transparent text-center hover:cursor-pointer hover:text-gray-800 dark:hover:text-gray-200 py-3 w-[9rem] hover:border-gray-400 mx-1.5 sm:mx-6` +
                 (subTab === "collection"
                   ? "border-b-[3px] border-transparent border-gray-400"
                   : "border-b-[3px] border-transparent")
