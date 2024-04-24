@@ -2,12 +2,25 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function Profile({ children }) {
-  const [subTab, setSubTab] = useState("created");
+interface User {
+  name: string;
+  sold: number;
+  volume: number;
+  followers: number;
+  address: string;
+  bio: string;
+}
+
+interface ProfileProps {
+  children: React.ReactNode;
+}
+
+export default function Profile({ children }: ProfileProps): JSX.Element {
+  const [subTab, setSubTab] = useState<string>("created");
   const router = useRouter();
 
-  const follow = false;
-  const user = {
+  const follow: boolean = false;
+  const user: User = {
     name: "Roger Binny",
     sold: 53,
     volume: 250000,
@@ -43,7 +56,7 @@ export default function Profile({ children }) {
             <button
               type="button"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 min-w-[8rem]"
-              onClick={() => {
+              onClick={(e) => {
                 e = e;
               }}
             >
@@ -52,7 +65,7 @@ export default function Profile({ children }) {
             <button
               type="button"
               className="text-black border-[3px] border-blue-700 bg-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-white dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 min-w-[8rem]"
-              onClick={() => {
+              onClick={(e) => {
                 e = e;
               }}
             >

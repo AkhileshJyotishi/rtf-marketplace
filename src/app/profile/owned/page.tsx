@@ -1,9 +1,16 @@
 import ProductCard from "@/components/ui/nft-card";
-import React from "react";
+import { StaticImageData } from "next/image";
 import trailPhoto from "@/assets/trail.png";
+import React from "react";
 
-export default function Profile() {
-  const Profiles = [
+interface Profile {
+  imgsrc: StaticImageData;
+  profileName: string;
+  role: string;
+}
+
+const Profile: React.FC = () => {
+  const profiles: Profile[] = [
     {
       imgsrc: trailPhoto,
       profileName: "Bonnie",
@@ -35,16 +42,20 @@ export default function Profile() {
       role: "visual designer",
     },
   ];
+
   return (
     <div className="p-[4rem] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
-          {Profiles.map((profile, idx) => (
-            <ProductCard
-            imageUrl={trailPhoto}
-            title="CryptoCity"
-            rating={3}
-            price={599}
+      {profiles.map((profile, idx) => (
+        <ProductCard
+          key={idx}
+          imageUrl={profile.imgsrc}
+          title={profile.profileName}
+          rating={3} // Placeholder rating, replace with actual rating from data
+          price={599} // Placeholder price, replace with actual price from data
         />
-          ))}
-        </div>
+      ))}
+    </div>
   );
 }
+
+export default Profile;
