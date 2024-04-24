@@ -8,12 +8,27 @@ const Blog = () => {
   const date = "12=1-2022";
   const title = "The Orbitians";
   const creator = "creator";
-const description=<>
-The Orbitians <br />
-is a collection of 10,000 unique NFTs on the Ethereum blockchain,<br /><br />
- There are all sorts of beings in the NFT Universe. The most advanced and friendly of the bunch are Orbitians. <br /> They live in a metal space machines, high up in the sky and only have one foot on Earth. <br />
-These Orbitians are a peaceful race, but they have been at war with a group of invaders for many generations. <br /><br /> The invaders are called Upside-Downs, because of their inverted bodies that live on the ground, yet do not know any other way to be.<br /><br /> Upside-Downs believe that they will be able to win this war if they could only get an eye into Orbitian territory, so they've taken to make human beings their target.
-</>
+  const highestBid="123 RTF"
+  const highestBidder="addr"
+  const description = (
+    <>
+      The Orbitians <br />
+      is a collection of 10,000 unique NFTs on the Ethereum blockchain,
+      <br />
+      <br />
+      There are all sorts of beings in the NFT Universe. The most advanced and
+      friendly of the bunch are Orbitians. <br /> They live in a metal space
+      machines, high up in the sky and only have one foot on Earth. <br />
+      These Orbitians are a peaceful race, but they have been at war with a
+      group of invaders for many generations. <br />
+      <br /> The invaders are called Upside-Downs, because of their inverted
+      bodies that live on the ground, yet do not know any other way to be.
+      <br />
+      <br /> Upside-Downs believe that they will be able to win this war if they
+      could only get an eye into Orbitian territory, so they've taken to make
+      human beings their target.
+    </>
+  );
   return (
     <div className="min-h-screen w-full bg-black   bg-dot-white/[0.2]  relative  ">
       <div className=" mt-24 text-white max-w-6xl mx-auto w-11/12 ">
@@ -33,15 +48,24 @@ These Orbitians are a peaceful race, but they have been at war with a group of i
             </div>
             <div>
               <h3>Created By </h3>
-              <p className="text-sm font-bold text-gray-500 italic ">{creator}</p>
+              <p className="text-sm font-bold text-gray-500 italic ">
+                {creator}
+              </p>
             </div>
             <div>
               <h3 className="text-3xl font-bold">Description</h3>
-              <p className="text-sm font-bold text-white mt-4 leading-relaxed">{description}</p>
+              <p className="text-sm font-bold text-white mt-4 leading-relaxed">
+                {description}
+              </p>
             </div>
           </div>
-          <div className="col-span-12 order-1 md:order-2 md:col-span-4 flex justify-center">
-           <CountDown/>
+          <div className="col-span-12 order-1 md:order-2 md:col-span-4 flex justify-center flex-col gap-4">
+            <CountDown />
+            <div className="border-gray-500 border-[0.1px] p-1 font-bold text-center rounded-lg flex flex-col gap-1">
+              <h2 className="text-3xl ">Highest bid</h2>
+              <h3 className="">{highestBid}</h3>
+              <h3 >{highestBidder}</h3>
+             </div>
           </div>
         </div>
       </div>
