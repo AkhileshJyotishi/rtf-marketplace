@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.19",
     "axios": "^1.6.8",
     "clsx": "^2.1.1",
     "ethers": "^6.12.0",

@@ -36,7 +36,7 @@ const Footer: React.FC<FooterProps> = ({
     }
   ];
   return (
-    <footer className="backdrop-blur-md bg-transparent text-white px-4 py-5 max-w-screen-xl mx-auto md:px-8">
+    <footer className="backdrop-blur-md bg-transparent text-white px-4 py-5 max-w-screen-xl mx-auto md:px-8 ">
       <div className="max-w-lg sm:mx-auto sm:text-center">
         {logoUrl && (
           <Image

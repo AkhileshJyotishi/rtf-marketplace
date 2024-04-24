@@ -21,7 +21,7 @@ export default function Profile({ children }) {
   }, [subTab]);
 
   return (
-    <div className="text-white flex flex-col">
+    <div className="text-white flex flex-col max-w-6xl mx-auto">
       <div className="w-full">
         <img
           className="w-full h-[20rem] object-fill"

@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "bg-slate-950")}>
+      <body className={cn(inter.className, "bg-black")}>
         <MetaMaskProvider>
           <UserProvider>
             <NavbarDemo />
