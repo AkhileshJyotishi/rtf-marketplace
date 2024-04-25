@@ -1,4 +1,4 @@
-import Example from '@/components/create'
+import { Example } from '@/components/create'
 import React from 'react'
 
 const Create = () => {

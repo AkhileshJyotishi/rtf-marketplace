@@ -1,19 +1,25 @@
 "use client";
 import axios from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
+import {address,abi} from "@/contract_abi_address/NftMarketPlace";
+import { ethers } from "ethers";
+import { useMetaMaskContext } from "@/providers/metamask-context";
 
 interface FormData {
   username: string;
   about: string;
   file: File | null;
+  price:number
 }
 
-export default function Example() {
+export const Example=()=> {
   const [formData, setFormData] = useState<FormData>({
     username: "",
     about: "",
     file: null,
+    price:1500000
   });
+  const {walletAddress , provider}=useMetaMaskContext()
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,8 +40,11 @@ export default function Example() {
   };
 
   const handleSubmit = async(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    console.log("hcala ")
     e.preventDefault();
-
+    console.log(provider)
+    const signer=await provider.getSigner()
+    console.log(signer)
     console.log("Form submitted:", formData);
 const Fdata=new FormData()
 if(formData.file){
@@ -65,13 +74,24 @@ if(formData.file){
         Authorization:process.env.NEXT_PUBLIC_PINATA_JWT 
       }
     })
-    console.log(metares.data);
+    console.log("this is the meta data",metares.data)
+    let signer = await provider?.getSigner()
+    let contract = new ethers.Contract(address, abi,signer);
+    const amountWei = ethers.utils.parseEther("0.0000000000015");
+    // const res2=await contract.getListingPrice()
+    // console.log(ethers.utils.formatEther(res2))
+    // console.log("response ",res2)
+    let data =await contract.creatingToken(metares.data.IpfsHash,formData.price,{value:amountWei})
+    console.log("final resoponse ",data)
+    // console.log(metares.data.IpfsHash);
+    
   } catch (error) {
     console.log(error);
   }
 }
 
-  };
+};
+
   return (
     <>
       <div className="space-y-12">
@@ -83,6 +103,9 @@ if(formData.file){
             This information will be displayed publicly so be careful what you
             share.
           </p>
+          <p className="mt-3 text-sm leading-6 text-yellow-500">
+                This requires minimum of 1500000 wei.
+              </p>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-4">
@@ -105,6 +128,32 @@ if(formData.file){
                     onChange={handleInputChange}
                   />
                 </div>
+              </div>
+            </div>
+            <div className="sm:col-span-4">
+              <label
+                htmlFor="price"
+                className="block text-sm font-medium leading-6 text-white"
+              >
+                Price
+              </label>
+              <div className="mt-2">
+                <div className=" p-1 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <input
+                    type="number"
+                    min={1500000}
+                    name="price"
+                    id="price"
+                    autoComplete="usernameprice"
+                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    placeholder="Enter the price"
+                    value={formData.price}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <p className="mt-3 text-sm leading-6 text-gray-600">
+                Minimum amount should be greater than 1500000 wei.
+              </p>
               </div>
             </div>
 

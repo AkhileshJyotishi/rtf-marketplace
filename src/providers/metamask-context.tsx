@@ -8,8 +8,8 @@ interface IMetaMaskContext {
   connectWallet: () => void;
   walletAddress: string|null;
   setWalletAddress: React.Dispatch<React.SetStateAction<string|null>>;
-  provider:ethers.BrowserProvider|null;
-  setProvider:React.Dispatch<React.SetStateAction<ethers.BrowserProvider|null>>;
+  provider:any;
+  setProvider:React.Dispatch<any>;
 }
 
 interface IMetaMaskProvider {
@@ -21,13 +21,14 @@ const Context = React.createContext<IMetaMaskContext>({} as IMetaMaskContext)
 const MetaMaskProvider = ({ children }: IMetaMaskProvider) => {
 
   const [walletAddress, setWalletAddress] = useState<string|null>(null);
-const [provider,setProvider]=useState< ethers.BrowserProvider|null>(null)
+const [provider,setProvider]=useState<any>(null)
 
   const getCurrentWalletConnected = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined"  ) {
       try {
         /* get provider */
-        const provider = new ethers.BrowserProvider(window.ethereum);
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        setProvider(provider)
         console.log(provider)
         /* get accounts */
         const accounts = await provider.send("eth_accounts", []);
@@ -65,7 +66,7 @@ const [provider,setProvider]=useState< ethers.BrowserProvider|null>(null)
   const connectWallet = async () => {
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
       try {
-        const provider = new ethers.BrowserProvider(window.ethereum);
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
 
         const accounts = await provider.send("eth_requestAccounts", []);
 

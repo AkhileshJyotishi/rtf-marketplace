@@ -1,6 +1,6 @@
 export const address = "0x14547c46867b8d885e0a57c16565b602c8e15af8"
 export const abi = [
-    [
+    
         {inputs: [],stateMutability: "nonpayable",type: "constructor"
         },
         {inputs: [
@@ -441,5 +441,5 @@ export const abi = [
                 }
             ],name: "updatePrice",outputs: [],stateMutability: "nonpayable",type: "function"
         }
-    ]
+    
 ]
