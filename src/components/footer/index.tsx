@@ -11,7 +11,7 @@ interface NavItem {
 interface FooterProps {
   logoUrl?: string;
   description: string;
-  navItems: NavItem[];
+ navItems: NavItem[];
   copyright: string;
 }
 
