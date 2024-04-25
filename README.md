@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## What it does
+- Our Boxing NFT Marketplace - **NFT Fight Club** is a revolutionary platform that bridges the gap between the rich heritage of boxing and the limitless potential of blockchain technology. At its core, our marketplace serves as a digital haven where boxing enthusiasts, collectors, and fans converge to experience the sport in an entirely new light.
 
-## Getting Started
+- First and foremost, our platform offers a vast array of exclusive NFTs (Non-Fungible Tokens) that capture the essence of boxing in its purest form. From iconic moments in the ring to rare memorabilia and behind-the-scenes footage.
 
-First, run the development server:
+- Through features such as live auctions, interactive experiences, and virtual events, users can connect with fellow boxing aficionados and even great boxers,  and even acquire coveted NFTs through competitive bidding.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Furthermore, our platform prioritizes inclusivity and accessibility, ensuring that boxing enthusiasts of all backgrounds and levels of expertise can partake in the excitement. Whether you're a seasoned collector looking to expand your portfolio or a casual fan eager to own a piece of your favorite boxer's legacy, our marketplace offers something for everyone.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How we built it
+With a dedication to innovation and a passion for boxing, we embarked on the journey to created NFT Fight Club, leveraging a blend of cutting-edge technologies and creative design tools.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+###TechStack-
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**-###Next.js**-
+At the forefront of our development stack is Next.js, a powerful React framework that allowed us to build a fast, scalable, and SEO-friendly web application. Next.js provided us with a solid foundation for creating dynamic pages, server-side rendering, and client-side routing, ensuring a seamless user experience from start to finish.
 
-## Learn More
+**-###Figma**-
+With Figma, we were able to streamline our design process, collaborate effectively across teams, and create pixel-perfect mockups that laid the groundwork for our frontend development.
 
-To learn more about Next.js, take a look at the following resources:
+**-###Tailwind**-
+By leveraging Tailwind's extensive library of utility classes, we were able to achieve consistency in design, maintain code simplicity, and iterate quickly on UI elements.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**-####Solidity**-
+At the heart of our marketplace's backend logic lies Solidity, a contract-oriented programming language for writing smart contracts on the Ethereum blockchain. Solidity enables us to implement the core functionality of our marketplace, including NFT minting, trading, and ownership transfers, while ensuring security and transparency.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**-###IPFS**-
+In NFT Fight Club, we've integrated IPFS (InterPlanetary File System) to provide decentralized storage for the NFT assets. 
