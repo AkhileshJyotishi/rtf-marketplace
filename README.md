@@ -12,17 +12,17 @@ With a dedication to innovation and a passion for boxing, we embarked on the jou
 
 ###TechStack-
 
-**-###Next.js**-
+**-Next.js**-
 At the forefront of our development stack is Next.js, a powerful React framework that allowed us to build a fast, scalable, and SEO-friendly web application. Next.js provided us with a solid foundation for creating dynamic pages, server-side rendering, and client-side routing, ensuring a seamless user experience from start to finish.
 
-**-###Figma**-
+**-Figma**-
 With Figma, we were able to streamline our design process, collaborate effectively across teams, and create pixel-perfect mockups that laid the groundwork for our frontend development.
 
-**-###Tailwind**-
+**-Tailwind**-
 By leveraging Tailwind's extensive library of utility classes, we were able to achieve consistency in design, maintain code simplicity, and iterate quickly on UI elements.
 
-**-####Solidity**-
+**-Solidity**-
 At the heart of our marketplace's backend logic lies Solidity, a contract-oriented programming language for writing smart contracts on the Ethereum blockchain. Solidity enables us to implement the core functionality of our marketplace, including NFT minting, trading, and ownership transfers, while ensuring security and transparency.
 
-**-###IPFS**-
+**-IPFS**-
 In NFT Fight Club, we've integrated IPFS (InterPlanetary File System) to provide decentralized storage for the NFT assets. 
