@@ -9,6 +9,8 @@ import Trial from "@/components/trial";
 import { useEffect, useState } from "react";
 import { useMetaMaskContext } from "@/providers/metamask-context";
 import axios from "axios";
+import { ethers } from "ethers";
+import { abi, address } from "@/contract_abi_address/NftMarketPlace";
 
 export default function Home() {
   const CollectionCards = [
@@ -182,6 +184,7 @@ getInitData()
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-[3rem]">
           {nFTS.map((nft, idx) => (
             <ProductCard
+            tokenId={1}
             imageUrl={nft.imgSrc}
             title={nft.name}
             rating={3}

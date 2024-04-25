@@ -106,13 +106,13 @@ const {walletAddress,connectWallet}=useMetaMaskContext()
   return (
     <div className={cn("fixed top-10 inset-x-0 max-w-[64rem] mx-auto z-50 overflow-hidden", className)}>
       <Menu setActive={setActive}>
-        <Image src={logo} alt="" className="w-[110px] object-contain" onClick={() => router.push("/")} />
+        <Image src={logo} alt="" className="w-[110px] object-contain hover:cursor-pointer" onClick={() => router.push("/")} />
         <div className="flex flex-row items-center gap-[12rem]">{data.menuItems.map((item, index) => (
           <MenuItem key={index} setActive={setActive} active={active} item={item.title} href={item.href} />
 
         ))}</div>
         {
-          walletAddress ? (<div className="text-xl font-bold text-white w-[130px] ">{walletAddress.substring(0, 7) + "...." + walletAddress.substring(walletAddress.length - 4, walletAddress.length - 1)} </div>) : (
+          walletAddress ? (<div className="text-xl font-bold hover:cursor-pointer text-white w-[130px] my-auto" onClick={()=>{router.push("/profile")}}>{walletAddress.substring(0, 7) + "...." + walletAddress.substring(walletAddress.length - 4, walletAddress.length - 1)} </div>) : (
             <Button className={"cursor-pointer text-xl font-bold hover:opacity-[0.9] text-white"} onClick={() => connectWallet()}>Connect</Button>
           )
         }
