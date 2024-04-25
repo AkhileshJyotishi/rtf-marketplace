@@ -106,7 +106,7 @@ const {walletAddress,connectWallet}=useMetaMaskContext()
   return (
     <div className={cn("fixed top-10 inset-x-0 max-w-[64rem] mx-auto z-50", className)}>
       <Menu setActive={setActive}>
-        <Image src={Logo} alt="" width={200} height={400} className="h-6 " onClick={() => router.push("/")} />
+        <Image src={Logo} alt="" width={200} height={400} className="h-6" onClick={() => router.push("/")} />
         {data.menuItems.map((item, index) => (
           <MenuItem key={index} setActive={setActive} active={active} item={item.title} href={item.href} />
 

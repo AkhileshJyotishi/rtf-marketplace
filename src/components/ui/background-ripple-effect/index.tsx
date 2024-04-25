@@ -62,7 +62,7 @@ export const BackgroundCellAnimation = () => {
             src={FighterImg}
             height={800}
             width={800}
-            className="h-full aspect-square"
+            className="h-full aspect-square hover:scale-[1.014] transition-all duration-500"
           />
         </div>
       </div>
@@ -88,9 +88,9 @@ const BackgroundCellCore = () => {
     <div
       ref={ref}
       onMouseMove={handleMouseMove}
-      className="h-full absolute inset-0"
+      className="h-full absolute inset-0 bg-[#020617]"
     >
-      <div className="absolute h-4/5 inset-y-0  overflow-hidden">
+      <div className="absolute h-4/5 inset-y-0  overflow-hidden ">
         <div className="absolute h-full w-full pointer-events-none -bottom-2 z-40 bg-slate-950 [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
         <div
           className="absolute inset-0 z-20 bg-transparent"
