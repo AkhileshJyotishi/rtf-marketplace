@@ -1,18 +1,26 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import Link from "next/link";
-import { Tab } from "@headlessui/react";
+import { useRouter } from "next/navigation";
 
-export default function Profile({ children }) {
-  const pathname = usePathname();
-  console.log("akh ", pathname);
-  const [subTab, setSubTab] = useState("created");
+interface User {
+  name: string;
+  sold: number;
+  volume: number;
+  followers: number;
+  address: string;
+  bio: string;
+}
+
+interface ProfileProps {
+  children: React.ReactNode;
+}
+
+export default function Profile({ children }: ProfileProps): JSX.Element {
+  const [subTab, setSubTab] = useState<string>("created");
   const router = useRouter();
 
-  const follow = false;
-
-  const user = {
+  const follow: boolean = false;
+  const user: User = {
     name: "Roger Binny",
     sold: 53,
     volume: 250000,
@@ -24,10 +32,9 @@ export default function Profile({ children }) {
   useEffect(() => {
     router.push(`/profile/${subTab}`);
   }, [subTab]);
-  useEffect(() => {}, []);
 
   return (
-    <div className="text-white flex flex-col max-w-6xl mx-auto">
+    <div className="text-white flex flex-col">
       <div className="w-full">
         <img
           className="w-full h-[20rem] object-fill"
@@ -42,14 +49,14 @@ export default function Profile({ children }) {
           alt=""
         />
       </div>
-      <div className="w-full  pt-[7rem] bg-transparent flex flex-col">
+      <div className="w-full h-[30rem] pt-[7rem] bg-transparent flex flex-col">
         <div className="text-3xl flex flex-col md:flex-row gap-4 justify-between px-[5rem]">
           <p className="font-extrabold min-w-[10rem]">{user.name}</p>
           <div className="flex flex-row gap-[5rem]">
             <button
               type="button"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 min-w-[8rem]"
-              onClick={() => {
+              onClick={(e) => {
                 e = e;
               }}
             >
@@ -58,7 +65,7 @@ export default function Profile({ children }) {
             <button
               type="button"
               className="text-black border-[3px] border-blue-700 bg-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-white dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 min-w-[8rem]"
-              onClick={() => {
+              onClick={(e) => {
                 e = e;
               }}
             >
@@ -143,52 +150,49 @@ export default function Profile({ children }) {
             </span>
           </p>
         </div>
-        <nav className="border-[0.1px] rounded-lg   border-gray-700 mt-[2rem]">
-          <div className="container flex items-center justify-between px-[4rem] mx-auto text-gray-600 capitalize p-1 ">
-            <div
+        <nav className="bg-white shadow-md shadow-gray-700 dark:bg-[#020617] border-t-2 border-gray-700 mt-[2rem]">
+          <div className="container flex items-center justify-between px-[4rem] mx-auto text-gray-600 capitalize dark:text-gray-300">
+            <a
               onClick={() => {
-                router.push("/profile/created");
                 setSubTab("created");
               }}
               className={
-                `border-b-[3px] border-transparent text-center hover:cursor-pointer font-bold   py-2 w-[9rem] hover:bg-gray-400 mx-1.5 sm:mx-6` +
+                `border-b-[3px] border-transparent text-center hover:cursor-pointer hover:text-gray-800 dark:hover:text-gray-200 py-3 w-[9rem] hover:border-gray-400 mx-1.5 sm:mx-6` +
                 (subTab === "created"
-                  ? "border-b-[3px] border-transparent  rounded-lg border-gray-400 bg-white"
+                  ? "border-b-[3px] border-transparent border-gray-400"
                   : "border-b-[3px] border-transparent")
               }
             >
               Created
-            </div>
+            </a>
 
-            <div
+            <a
               onClick={() => {
-                router.push("/profile/owned");
                 setSubTab("owned");
               }}
               className={
-                `font-bold border-b-[3px] border-transparent text-center hover:cursor-pointer  hover:bg-gray-400  py-2 w-[9rem] mx-1.5 sm:mx-6` +
+                `border-b-[3px] border-transparent text-center hover:cursor-pointer hover:text-gray-800 hover:border-gray-400 dark:hover:text-gray-200 py-3 w-[9rem] mx-1.5 sm:mx-6` +
                 (subTab === "owned"
-                  ? "border-b-[3px] border-transparent rounded-lg border-gray-400 bg-white"
+                  ? "border-b-[3px] border-transparent border-gray-400"
                   : "border-b-[3px] border-transparent")
               }
             >
               Owned
-            </div>
+            </a>
 
-            <div
+            <a
               onClick={() => {
-                router.push("/profile/collection");
                 setSubTab("collection");
               }}
               className={
-                `font-bold border-b-[3px] border-transparent text-center hover:cursor-pointer  hover:bg-gray-400 py-2 w-[9rem] hover:border-gray-400 mx-1.5 sm:mx-6` +
+                `border-b-[3px] border-transparent text-center hover:cursor-pointer hover:text-gray-800 dark:hover:text-gray-200 py-3 w-[9rem] hover:border-gray-400 mx-1.5 sm:mx-6` +
                 (subTab === "collection"
-                  ? "border-b-[3px] border-transparent rounded-lg border-gray-400 bg-white"
+                  ? "border-b-[3px] border-transparent border-gray-400"
                   : "border-b-[3px] border-transparent")
               }
             >
               Collection
-            </div>
+            </a>
           </div>
         </nav>
         <div>{children}</div>
