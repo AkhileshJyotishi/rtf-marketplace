@@ -17,8 +17,9 @@ const footerProps = {
   logoUrl: 'https://www.floatui.com/logo.svg',
   description: "NFT MarketPlace.",
   navItems: [
-      { href: '', name: 'About' },
-      { href: '', name: 'Blog' },
+      { href: '/profile', name: 'My Profile' },
+      { href: '/auction', name: 'Auctions' },
+      { href: '/leaderboard', name: 'Leaderboard' },
       // Add more nav items as needed
   ],
   copyright: '© 2022 Float UI All rights reserved.',

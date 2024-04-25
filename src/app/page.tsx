@@ -3,16 +3,11 @@ import { BackgroundCellAnimation } from "@/components/ui/background-ripple-effec
 import NotificationCard from "@/components/ui/collection-card";
 import ProfileCard from "@/components/ui/profile-card";
 import trailPhoto from "@/assets/trail.png";
-import {address,abi} from "@/contract_abi_address/NftMarketPlace";
-
 import Boxing from "@/assets/lander.jpg";
-
-import Image from "next/image";
 import ProductCard from "@/components/ui/nft-card";
 import Trial from "@/components/trial";
 import { useEffect, useState } from "react";
 import { useMetaMaskContext } from "@/providers/metamask-context";
-import { ethers } from "ethers";
 import axios from "axios";
 
 export default function Home() {
