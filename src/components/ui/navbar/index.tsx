@@ -19,7 +19,7 @@ export const MenuItem = ({
 }) => {
 
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative ">
+    <div onMouseEnter={() => setActive(item)} className="relative">
       <Link
         href={href}
         className="cursor-pointer text-xl font-bold hover:opacity-[0.9] text-white"
