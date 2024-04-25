@@ -22,7 +22,6 @@ const footerProps = {
       { href: '/', name: 'Leaderboard' },
       // Add more nav items as needed
   ],
-  copyright: '© 2022 Float UI All rights reserved.',
 };
 
 export default function RootLayout({
