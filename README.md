@@ -10,7 +10,7 @@
 ## How we built it
 With a dedication to innovation and a passion for boxing, we embarked on the journey to created NFT Fight Club, leveraging a blend of cutting-edge technologies and creative design tools.
 
-###TechStack-
+##TechStack-
 
 **-Next.js**-
 At the forefront of our development stack is Next.js, a powerful React framework that allowed us to build a fast, scalable, and SEO-friendly web application. Next.js provided us with a solid foundation for creating dynamic pages, server-side rendering, and client-side routing, ensuring a seamless user experience from start to finish.
