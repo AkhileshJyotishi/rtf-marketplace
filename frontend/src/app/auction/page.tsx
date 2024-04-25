@@ -166,10 +166,12 @@ initData()
             tokenURI={auction.tokenURI}
             nft_url={"profile.nft_url"}
             highest_bid={auction.highestBidPrice}
+            highestBidder={auction.highestBidder}
             time_left={auction.endAuction}
             avatar={"#"}
             creater={auction.creator}
             tokenId={auction.tokenId}
+            auctionIndex={auction.auctionIndex}
           />
         ))}
       </div>

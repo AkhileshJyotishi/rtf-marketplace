@@ -190,6 +190,7 @@ getInitData()
             rating={3}
             price={nft.price}
             seller={nft.seller}
+            tokenId={nft.tokenId}
         />
           ))}
         </div>
