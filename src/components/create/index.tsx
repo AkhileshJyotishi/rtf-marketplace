@@ -13,7 +13,7 @@ interface FormData {
 }
 
 export const Example=()=> {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<any>({
     username: "",
     about: "",
     file: null,
@@ -25,7 +25,7 @@ export const Example=()=> {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prevFormData) => ({
+    setFormData((prevFormData:any) => ({
       ...prevFormData,
       [name]: value,
     }));
@@ -33,7 +33,7 @@ export const Example=()=> {
 
   const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
-    setFormData((prevFormData) => ({
+    setFormData((prevFormData:any) => ({
       ...prevFormData,
       file,
     }));
@@ -46,7 +46,7 @@ export const Example=()=> {
     const signer=await provider.getSigner()
     console.log(signer)
     console.log("Form submitted:", formData);
-const Fdata=new FormData()
+const Fdata:any=new FormData()
 if(formData.file){
   Fdata.append("file",formData.file)
   const pinataMetadata = JSON.stringify({
