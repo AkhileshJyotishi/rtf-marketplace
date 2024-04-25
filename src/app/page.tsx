@@ -1,12 +1,19 @@
+"use client"
 import { BackgroundCellAnimation } from "@/components/ui/background-ripple-effect";
 import NotificationCard from "@/components/ui/collection-card";
 import ProfileCard from "@/components/ui/profile-card";
 import trailPhoto from "@/assets/trail.png";
+import {address,abi} from "@/contract_abi_address/NftMarketPlace";
+
 import Boxing from "@/assets/lander.jpg";
 
 import Image from "next/image";
 import ProductCard from "@/components/ui/nft-card";
 import Trial from "@/components/trial";
+import { useEffect, useState } from "react";
+import { useMetaMaskContext } from "@/providers/metamask-context";
+import { ethers } from "ethers";
+import axios from "axios";
 
 export default function Home() {
   const CollectionCards = [
@@ -67,6 +74,62 @@ export default function Home() {
       role: "visual designer",
     },
   ];
+  const {provider}=useMetaMaskContext()
+  const getInitData=async()=>{
+    if(provider){
+      // console.log("function runnung")
+      // const signer=await provider.getSigner()
+      // const contract =new ethers.Contract(address,abi,signer)
+      // let datas=await contract.getAllNFTs() as NFTtypes[]
+      // const axiosPromises = datas.map(async (data) => {
+      //   return axios.get(`https://gateway.pinata.cloud/ipfs/${data.tokenURI}`);
+      // });
+      // const response = await Promise.all(axiosPromises);
+      // console.log("that si the res ",response);
+      // const meta=await fetch("https://gateway.pinata.cloud/ipfs/QmUnxTd4N6u2fveo8eLiV6CQELZayCDgYYxSzJGw3r9gKT",{
+        // method:"GET"
+      // })
+      const meta=await axios.get(`https://gateway.pinata.cloud/ipfs/QmUnxTd4N6u2fveo8eLiV6CQELZayCDgYYxSzJGw3r9gKT`,{
+      headers:{
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Authorization':`${process.env.NEXT_PUBLIC_PINATA_JWT}`
+      }
+      });
+      console.log("aya ",meta)
+//       for(let i=0; i<datas.length;i++){
+// console.log("comes ",meta)  
+//       }
+     
+  //   const nftsdata=datas.map((data,idx)=>{
+  //     const price=Number(ethers.utils.formatEther(data.price))
+  //    return {
+  //     inAuction:data.inAuction,
+  //     owner:data.owner,
+  //     price,
+  //     seller:data.seller,
+  //     sold:data.sold,
+  //     tokenURI:data.tokenURI
+  //   }
+  //   })
+  //   console.log("data of nft",nftsdata)
+  //  setNfts(nftsdata  )
+
+    }
+  }
+  type NFTtypes={
+    inAuction:boolean;
+    owner:string;
+    price:number;
+    seller:string;
+    sold:boolean;
+    tokenURI:string
+  }
+  const [nFTS,setNfts]=useState<NFTtypes[]>([])
+  useEffect(()=>{
+getInitData()
+
+  },[provider])
 
   return (
     <main className="min-h-screen  max-w-7xl mx-auto ">
@@ -115,7 +178,7 @@ export default function Home() {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
-          {Profiles.map((profile, idx) => (
+          {nFTS.map((nft, idx) => (
             <ProductCard
             imageUrl={trailPhoto}
             title="CryptoCity"
@@ -127,7 +190,6 @@ export default function Home() {
       </section>
       <section className="my-8 p-4 min-h-[80vh]  relative bg-fixed bg-center bg-no-repeat bg-cover" style={{backgroundImage:`url(${Boxing.src})`}}>
       </section>
-      <Trial/>
     </main>
   );
 }
