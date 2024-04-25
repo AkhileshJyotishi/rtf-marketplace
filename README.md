@@ -26,3 +26,12 @@ At the heart of our marketplace's backend logic lies Solidity, a contract-orient
 
 **-IPFS**-
 In NFT Fight Club, we've integrated IPFS (InterPlanetary File System) to provide decentralized storage for the NFT assets. 
+
+
+## Team Members
+
+
+
+
+Video Link : [->](https://www.loom.com/share/6d7e387c6c9f46ddb4ccd1ce127f6897?sid=f4c19d68-e07c-473c-a751-d9a71912ebe8)
+
