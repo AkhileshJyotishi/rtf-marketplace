@@ -80,46 +80,46 @@ const CountDown = () => {
         </h1>
         <div className="flex gap-2 items-center justify-center">
           <div className="flex gap-1 ">
-            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-[20px]  py-1 px-2  rounded drop-shadow-xl">
+            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-xl  py-1 px-2  rounded drop-shadow-xl">
               {countDownTime?.days?.charAt(0)}
             </span>
-            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-[20px]  py-1 px-2  rounded drop-shadow-xl">
+            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-xl  py-1 px-2  rounded drop-shadow-xl">
               {countDownTime?.days?.charAt(1)}
             </span>
             <span
               className={
                 countDownTime?.days?.length <= 2
                   ? "hidden"
-                  : "bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-[20px]  py-1 px-2  rounded drop-shadow-xl"
+                  : "bg-[#2D3C7B] font-semibold text-[#FBFAF8]  text-xl  py-1 px-2  rounded drop-shadow-xl"
               }
             >
               {countDownTime?.days?.charAt(2)}
             </span>
           </div>
-          <span className="text-[#FBFAF8] text-[20px] ">:</span>
+          <span className="text-[#FBFAF8] text-xl ">:</span>
           <div className="flex gap-1 shadow-lg">
-            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-[20px]  py-1 px-2  rounded drop-shadow-xl">
+            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-xl  py-1 px-2  rounded drop-shadow-xl">
               {countDownTime?.hours?.charAt(0)}
             </span>
-            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-[20px]  py-1 px-2  rounded drop-shadow-xl">
+            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-xl  py-1 px-2  rounded drop-shadow-xl">
               {countDownTime?.hours?.charAt(1)}
             </span>
           </div>
-          <span className="text-[#FBFAF8] text-[20px] ">:</span>
+          <span className="text-[#FBFAF8] text-xl ">:</span>
           <div className="flex gap-1">
-            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-[20px]  py-1 px-2  rounded drop-shadow-xl">
+            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-xl  py-1 px-2  rounded drop-shadow-xl">
               {countDownTime?.minutes?.charAt(0)}
             </span>
-            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-[20px]  py-1 px-2  rounded drop-shadow-xl">
+            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-xl  py-1 px-2  rounded drop-shadow-xl">
               {countDownTime?.minutes?.charAt(1)}
             </span>
           </div>
-          <span className="text-[#FBFAF8] text-[20px] ">:</span>
+          <span className="text-[#FBFAF8] text-xl ">:</span>
           <div className="flex gap-1">
-            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-[20px]  py-1 px-2  rounded drop-shadow-xl">
+            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-xl  py-1 px-2  rounded drop-shadow-xl">
               {countDownTime?.seconds?.charAt(0)}
             </span>
-            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-[20px]  py-1 px-2  rounded drop-shadow-xl">
+            <span className="bg-[#2D3C7B] font-semibold text-[#FBFAF8] text-xl  py-1 px-2  rounded drop-shadow-xl">
               {countDownTime?.seconds?.charAt(1)}
             </span>
           </div>

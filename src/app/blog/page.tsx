@@ -3,6 +3,8 @@ import Boxing from "@/assets/lander.jpg";
 import Image from "next/image";
 import React from "react";
 import CountDown from "@/components/ui/countdown";
+import TextInput from "@/components/ui/text-input";
+import BidComp from "@/components/bid";
 
 const Blog = () => {
   const date = "12=1-2022";
@@ -61,11 +63,7 @@ const Blog = () => {
           </div>
           <div className="col-span-12 order-1 md:order-2 md:col-span-4 flex justify-center flex-col gap-4">
             <CountDown />
-            <div className="border-gray-500 border-[0.1px] p-1 font-bold text-center rounded-lg flex flex-col gap-1">
-              <h2 className="text-3xl ">Highest bid</h2>
-              <h3 className="">{highestBid}</h3>
-              <h3 >{highestBidder}</h3>
-             </div>
+            <BidComp highestBid={100} highestBidder="0x123"/>
           </div>
         </div>
       </div>

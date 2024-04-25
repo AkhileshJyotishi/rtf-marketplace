@@ -6,6 +6,7 @@ import Boxing from "@/assets/lander.jpg";
 
 import Image from "next/image";
 import ProductCard from "@/components/ui/nft-card";
+import Trial from "@/components/trial";
 
 export default function Home() {
   const CollectionCards = [
@@ -126,7 +127,7 @@ export default function Home() {
       </section>
       <section className="my-8 p-4 min-h-[80vh]  relative bg-fixed bg-center bg-no-repeat bg-cover" style={{backgroundImage:`url(${Boxing.src})`}}>
       </section>
-      
+      <Trial/>
     </main>
   );
 }
