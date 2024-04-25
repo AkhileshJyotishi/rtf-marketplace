@@ -5,7 +5,11 @@ const nextConfig = {
             {
                 protocol:"https",
                 hostname:"horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app"
-            }
+            },
+            {
+                protocol:"https",
+                hostname:"gateway.pinata.cloud"
+            },
         ]
     }
 };

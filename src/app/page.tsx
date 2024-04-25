@@ -77,10 +77,11 @@ export default function Home() {
   const {provider}=useMetaMaskContext()
   const getInitData=async()=>{
     if(provider){
-      // console.log("function runnung")
-      // const signer=await provider.getSigner()
-      // const contract =new ethers.Contract(address,abi,signer)
-      // let datas=await contract.getAllNFTs() as NFTtypes[]
+      console.log("function runnung")
+      const signer=await provider.getSigner()
+      const contract =new ethers.Contract(address,abi,signer)
+      let datas=await contract.getAllNFTs() as NFTtypes[]
+      console.log("dats ",datas)
       // const axiosPromises = datas.map(async (data) => {
       //   return axios.get(`https://gateway.pinata.cloud/ipfs/${data.tokenURI}`);
       // });
@@ -89,31 +90,32 @@ export default function Home() {
       // const meta=await fetch("https://gateway.pinata.cloud/ipfs/QmUnxTd4N6u2fveo8eLiV6CQELZayCDgYYxSzJGw3r9gKT",{
         // method:"GET"
       // })
-      const meta=await axios.get(`https://gateway.pinata.cloud/ipfs/QmUnxTd4N6u2fveo8eLiV6CQELZayCDgYYxSzJGw3r9gKT`,{
-      headers:{
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-        'Authorization':`${process.env.NEXT_PUBLIC_PINATA_JWT}`
-      }
-      });
-      console.log("aya ",meta)
+     
 //       for(let i=0; i<datas.length;i++){
 // console.log("comes ",meta)  
 //       }
      
-  //   const nftsdata=datas.map((data,idx)=>{
-  //     const price=Number(ethers.utils.formatEther(data.price))
-  //    return {
-  //     inAuction:data.inAuction,
-  //     owner:data.owner,
-  //     price,
-  //     seller:data.seller,
-  //     sold:data.sold,
-  //     tokenURI:data.tokenURI
-  //   }
-  //   })
+    const nftsdata=await Promise.all(datas.map(async(data,idx)=>{
+      const price=Number(ethers.utils.formatEther(data.price))
+      const meta=await axios.get(`https://gateway.pinata.cloud/ipfs/${data.tokenURI}`);
+      const tokenId=Number(ethers.utils.formatEther(data.tokenId))
+
+console.log("agua final ",meta.data)
+     return {
+      inAuction:data.inAuction,
+      owner:data.owner,
+      price,
+      seller:data.seller,
+      sold:data.sold,
+      tokenURI:data.tokenURI,
+      name:meta.data.name,
+      description:meta.data.description,
+      imgSrc:meta.data.imgSrc,
+      tokenId
+    }
+    }))
   //   console.log("data of nft",nftsdata)
-  //  setNfts(nftsdata  )
+   setNfts(nftsdata  )
 
     }
   }
@@ -123,7 +125,11 @@ export default function Home() {
     price:number;
     seller:string;
     sold:boolean;
-    tokenURI:string
+    tokenURI:string;
+    name:string;
+    description:string;
+    imgSrc:string;
+    tokenId:number
   }
   const [nFTS,setNfts]=useState<NFTtypes[]>([])
   useEffect(()=>{
@@ -181,10 +187,11 @@ getInitData()
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-[3rem]">
           {nFTS.map((nft, idx) => (
             <ProductCard
-            imageUrl={trailPhoto}
-            title="CryptoCity"
+            imageUrl={nft.imgSrc}
+            title={nft.name}
             rating={3}
-            price={599}
+            price={nft.price}
+            seller={nft.seller}
         />
           ))}
         </div>

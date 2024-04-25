@@ -1,19 +1,50 @@
+"use client"
+import { useMetaMaskContext } from "@/providers/metamask-context";
+import { ethers } from "ethers";
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
+import { abi, address } from "@/contract_abi_address/NftMarketPlace";
+
 
 interface ProductCardProps {
-  imageUrl: StaticImageData;
+  imageUrl: StaticImageData|string;
   title: string;
   rating: number;
   price: number;
-}
+  seller:string;
+  tokenId:number
 
+}
+type NFTtypes={
+  inAuction:boolean;
+  owner:string;
+  price:number;
+  seller:string;
+  sold:boolean;
+  tokenURI:string;
+  name:string;
+  description:string;
+  imgSrc:string;
+  tokenId:number
+}
 const ProductCard: React.FC<ProductCardProps> = ({
   imageUrl,
   title,
   rating,
   price,
+  seller,
+  tokenId
 }) => {
+  const {provider,walletAddress}=useMetaMaskContext()
+  const handleData=async()=>{
+    const signer=await provider.getSigner()
+    const contract =new ethers.Contract(address,abi,signer)
+    let datas=await contract.createAuction(tokenId)
+    console.log(datas)   
+  }
+  
+  const router=useRouter()
   return (
     <div className="hover:cursor-pointer hover:translate-y-[-0.5rem] transition-all duration-500 bg-gradient-to-br from-gray-400 via-gray-500 to-black  w-full max-w-sm border border-gray-200 rounded-lg shadow ">
       <Image
@@ -57,6 +88,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <div className="text-sm text-white"> {price}</div>
           </div>
         </div>
+      </div>
+      <div>
+        {
+walletAddress?.toLowerCase()==seller.toLowerCase() &&
+        <button onClick={handleData}>Add to auction</button>
+        }
+        {/*  */}
       </div>
     </div>
   );

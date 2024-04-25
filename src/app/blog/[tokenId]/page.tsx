@@ -1,3 +1,4 @@
+"use client"
 import { HeroHighlight } from "@/components/ui/nft-page-background";
 import Boxing from "@/assets/lander.jpg";
 import Image from "next/image";
@@ -5,8 +6,10 @@ import React from "react";
 import CountDown from "@/components/ui/countdown";
 import TextInput from "@/components/ui/text-input";
 import BidComp from "@/components/bid";
+import { useParams } from "next/navigation";
 
 const Blog = () => {
+  const {tokenId}=useParams()
   const date = "12=1-2022";
   const title = "The Orbitians";
   const creator = "creator";

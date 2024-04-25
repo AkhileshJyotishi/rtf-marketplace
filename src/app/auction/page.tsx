@@ -1,5 +1,10 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import AuctionCard from "@/components/nft-card-auction";
+import { useMetaMaskContext } from "@/providers/metamask-context";
+import { ethers } from "ethers";
+import { abi, address } from "@/contract_abi_address/NftMarketPlace";
+
 
 interface Profile {
   name: string;
@@ -94,6 +99,46 @@ const Page: React.FC = () => {
     },
     // Add other profiles here
   ];
+  type AuctionsType={
+auctionIndex:number;
+bidCount:number;
+creator:string;
+endAuction:number;
+highestBidPrice:number;
+highestBidder:string;
+nftClaimed:boolean;
+priceClaimed:boolean;
+tokenId:number;
+tokenURI:string
+  }
+  const [auctions,setAuctions]=useState<AuctionsType[]>([])
+  const {provider,walletAddress}=useMetaMaskContext()
+  const initData=async()=>{
+    const signer=await provider.getSigner()
+    const contract =new ethers.Contract(address,abi,signer)
+    let datas=await contract.getAllAuction() as AuctionsType[]
+    console.log("acutoins ",datas)
+    const auct=datas.map((data,idx)=>{
+
+return {
+  auctionIndex:Number(data.auctionIndex),
+  bidCount:Number(data.bidCount),
+  creator:data.creator,
+  endAuction:Number(data.endAuction),
+  highestBidPrice:Number(ethers.utils.formatEther(data.highestBidPrice)),
+  highestBidder:data.highestBidder,
+  nftClaimed:data.nftClaimed,
+  tokenId:data.tokenId,
+  tokenURI:data.tokenURI,
+  priceClaimed:data.priceClaimed
+}
+    })
+    setAuctions(auct)
+  }
+useEffect(()=>{
+  if(provider)
+initData()
+},[provider])
 
   return (
     <div className="flex flex-col">
@@ -116,14 +161,15 @@ const Page: React.FC = () => {
         All Auctions
       </span>
       <div className="px-[5.5rem] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-[2.5rem]">
-        {Profiles.map((profile, idx) => (
+        {auctions.map((auction, idx) => (
           <AuctionCard
-            name={profile.name}
-            nft_url={profile.nft_url}
-            highest_bid={profile.highest_bid}
-            time_left={profile.time_left}
-            avatar={profile.creater_avatar}
-            creater={profile.creator_name}
+            tokenURI={auction.tokenURI}
+            nft_url={"profile.nft_url"}
+            highest_bid={auction.highestBidPrice}
+            time_left={auction.endAuction}
+            avatar={"#"}
+            creater={auction.creator}
+            tokenId={auction.tokenId}
           />
         ))}
       </div>
