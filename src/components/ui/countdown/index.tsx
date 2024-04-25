@@ -40,7 +40,6 @@ const CountDown = () => {
             minutes: "00",
             seconds: "00",
           });
-          clearInterval();
         } else {
           setCountDownTIme({
             days: days,

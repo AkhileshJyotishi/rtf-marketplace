@@ -48,8 +48,10 @@ const Profile: React.FC = () => {
       {profiles.map((profile, idx) => (
         <ProductCard
           key={idx}
+          tokenId={idx}
           imageUrl={profile.imgsrc}
           title={profile.profileName}
+          seller={profile.profileName}
           rating={3} // Placeholder rating, replace with actual rating from data
           price={599} // Placeholder price, replace with actual price from data
         />

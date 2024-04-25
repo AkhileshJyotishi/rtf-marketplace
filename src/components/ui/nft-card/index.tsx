@@ -13,7 +13,7 @@ interface ProductCardProps {
   rating: number;
   price: number;
   seller:string;
-  tokenId:number
+  tokenId:number;
 
 }
 type NFTtypes={
