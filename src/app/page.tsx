@@ -69,7 +69,8 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen  max-w-7xl mx-auto ">
+    <main className="w-full bg-[#020617]">
+    <div className="min-h-screen max-w-[85rem] mx-auto bg-[#020617]">
       <BackgroundCellAnimation />
       <section className="mt-8 flex flex-col gap-8">
         <div>
@@ -114,7 +115,7 @@ export default function Home() {
             Checkout Top Rated Creators on the NFT Marketplace
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-[3rem]">
           {Profiles.map((profile, idx) => (
             <ProductCard
             imageUrl={trailPhoto}
@@ -128,6 +129,7 @@ export default function Home() {
       <section className="my-8 p-4 min-h-[80vh]  relative bg-fixed bg-center bg-no-repeat bg-cover" style={{backgroundImage:`url(${Boxing.src})`}}>
       </section>
       <Trial/>
+    </div>
     </main>
   );
 }
