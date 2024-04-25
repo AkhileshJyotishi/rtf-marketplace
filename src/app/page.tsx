@@ -9,6 +9,8 @@ import Trial from "@/components/trial";
 import { useEffect, useState } from "react";
 import { useMetaMaskContext } from "@/providers/metamask-context";
 import axios from "axios";
+import { ethers } from "ethers";
+import { abi, address } from "@/contract_abi_address/NftMarketPlace";
 
 export default function Home() {
   const CollectionCards = [
@@ -187,6 +189,7 @@ getInitData()
             rating={3}
             price={nft.price}
             seller={nft.seller}
+            tokenId={nft.tokenId}
         />
           ))}
         </div>

@@ -12,6 +12,8 @@ interface AuctionCardProps {
   avatar: string;
   creater: string;
   tokenId:number;
+  highestBidder:string;
+  auctionIndex:number
 }
 function convertUnixTimeToReadable(unixTimestamp:any) {
   // Create a JavaScript Date object from the Unix timestamp
@@ -32,10 +34,13 @@ const AuctionCard: React.FC<AuctionCardProps> = ({
   nft_url,
   highest_bid,
   time_left,
+  highestBidder,
   avatar,
   creater,
-  tokenId
+  tokenId,
+  auctionIndex
 }) => {
+  console.log("less ",highest_bid)
   const [additionalData,setAdditionalData]=useState<{
     name:string;
     description:string;
@@ -56,6 +61,7 @@ fetchdata()
         <img
           className="top-0 w-[19rem] rounded-2xl"
           src={additionalData.imgSrc}
+          
           alt="nft"
         />
       </div>
@@ -83,7 +89,7 @@ fetchdata()
             <p className="text-softblue self-center">{convertUnixTimeToReadable(time_left)} left</p>
           </div>
         </div>
-        <Button title="Place Bid" onClick={()=>router.push(`/blog/${tokenId}?`)}  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-sm rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full"/>
+        <Button title="Place Bid" onClick={()=>router.push(`/blog/${tokenId}?name=${additionalData.name}&description=${additionalData.description}&imgSrc=${additionalData.imgSrc}&time_left=${convertUnixTimeToReadable(time_left)}?highest_bid=${highest_bid}?highestBidder=${highestBidder}?auctionIndex=${auctionIndex}`)}  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-sm rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full"/>
         <hr className="border-dark-blue-line mt-[1rem]" />
       </div>
       <div>

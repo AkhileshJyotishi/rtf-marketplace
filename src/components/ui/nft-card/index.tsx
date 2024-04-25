@@ -44,7 +44,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
     console.log(datas)   
   }
   
-  const router=useRouter()
+ const buyNFT=async()=>{
+  const signer=await provider.getSigner()
+  const contract =new ethers.Contract(address,abi,signer)
+  const amountWei = ethers.utils.parseEther((price*1e18).toString());
+  let buying=await contract.executeSale(tokenId,{value:amountWei});
+  console.log(buying)
+ }
   return (
     <div className="hover:cursor-pointer hover:translate-y-[-0.5rem] transition-all duration-500 bg-gradient-to-br from-gray-400 via-gray-500 to-black  w-full max-w-sm border border-gray-200 rounded-lg shadow ">
       <Image
@@ -94,7 +100,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
 walletAddress?.toLowerCase()==seller.toLowerCase() &&
         <button onClick={handleData}>Add to auction</button>
         }
-        {/*  */}
+       
+      </div>
+      <div>
+        <button onClick={buyNFT}>Buy</button>
       </div>
     </div>
   );
