@@ -12,7 +12,6 @@ interface FooterProps {
   logoUrl?: string;
   description: string;
  navItems: NavItem[];
-  copyright: string;
 }
 
 const Footer: React.FC<FooterProps> = ({ logoUrl, navItems }) => {
