@@ -35,7 +35,7 @@ export default function RootLayout({
         <MetaMaskProvider>
           <UserProvider>
             <NavbarDemo />
-            <div >{children}</div>
+            <div>{children}</div>
             <Footer {...footerProps} />
           </UserProvider>
         </MetaMaskProvider>

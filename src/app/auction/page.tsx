@@ -108,7 +108,7 @@ const Page: React.FC = () => {
         </div>
         <img
           className="w-full h-[37rem] object-cover"
-          src="https://live-production.wcms.abc-cdn.net.au/cbe346eee79d3e08dee5e8eb04284438?impolicy=wcms_crop_resize&cropH=1680&cropW=2983&xPos=17&yPos=574&width=862&height=485"
+          src="https://vagazine.com/vaga_v3/wp-content/uploads/2021/09/NFT-ART-Consensual-Hallucinations-Serwah-Attafuah.jpeg"
           alt=""
         />
       </div>
